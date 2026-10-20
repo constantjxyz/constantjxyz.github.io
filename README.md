@@ -1,6 +1,6 @@
 # Yuzhang Xie — personal homepage
 
-A small, responsive, static homepage based on the downloaded academic homepage template. The original sample profile, papers, projects, experience, awards, social links, and template branding have been removed so that no fictional biography is presented as real.
+A static academic homepage. `index.html` contains the profile and page sections; `stylesheet.css` contains the template styling. Public academic details and selected work are linked from the page.
 
 ## Preview locally
 
@@ -12,19 +12,7 @@ python3 -m http.server 8080 --bind 127.0.0.1
 
 Then open <http://127.0.0.1:8080> in a browser. Stop the server with `Ctrl+C`.
 
-## Personal details to add
-
-The only personal detail currently confirmed in the files is the name “Yuzhang Xie.” Send the details below (skip anything you do not want public), and the homepage can be filled in accurately:
-
-- Preferred name and, if wanted, Chinese name
-- Current role, institution, department, and advisor (if applicable)
-- Short introduction and research interests
-- Email address and public links (CV, Google Scholar, GitHub, LinkedIn, etc.)
-- Publications: title, coauthors, venue/year, and links
-- Projects, news, experience, service, or awards to show
-- A profile photo, if you want one
-
-The content lives in `index.html`; visual styles live in `stylesheet.css`. Put a CV PDF or profile image in this folder (or a subfolder) and link to it with a relative path, for example `files/cv.pdf`.
+To revise profile text, publication entries, projects, or links, edit `index.html`. To add a CV, place the PDF in this folder (or a subfolder) and add its relative path in the contact links.
 
 ## Publish with GitHub Pages
 
