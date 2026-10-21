@@ -400,15 +400,18 @@ heading {
   font-size: 15.5px;
   color: #333;
 }
-.news-text .venue {
+.news-text .venue,
+.internship-highlight {
   font-weight: 700;
   color: #b47a00;
   background: linear-gradient(135deg, rgba(251, 165, 36, 0.12), rgba(243, 208, 8, 0.12));
   padding: 1px 8px;
   border-radius: 4px;
-  font-size: 13px;
   letter-spacing: 0.03em;
   white-space: nowrap;
+}
+.news-text .venue {
+  font-size: 13px;
 }
 /* Show more / less toggle */
 .news-toggle {
