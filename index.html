@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Yuzhang Xie">
-  <meta name="description" content="Yuzhang Xie is a Ph.D. student at Emory University researching AI for health, clinical informatics, and graph learning.">
+  <meta name="description" content="Yuzhang Xie is a Ph.D. candidate at Emory University developing reliable and interpretable AI methods for healthcare, multimodal clinical data, and biomedical knowledge.">
   <title>Yuzhang Xie | Emory University</title>
   <link rel="stylesheet" href="stylesheet.css">
   <style>
@@ -21,42 +21,48 @@
     }
     .profile-photo-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .profile-monogram { color: #8d641b; font: 600 54px Georgia, serif; }
+    .research-interests { margin: -4px 0 0; padding-left: 22px; }
+    .research-interests li { margin-bottom: 6px; }
+    .contact-line { font-size: 17px; }
+    .contact-links svg { width: 17px; height: 17px; }
+    .sticky-contacts { display: none; flex-direction: column; gap: 7px; margin: 2px 0 0 6px; padding-top: 10px; border-top: 1px solid #e5e7eb; }
+    .sticky-contacts a { display: flex; align-items: center; gap: 7px; color: #555; font-size: 12px; line-height: 1.2; text-decoration: none; }
+    .sticky-contacts a:hover { color: #a86100; }
+    .sticky-contacts svg { width: 14px; height: 14px; flex-shrink: 0; }
     .publication-links, .project-links { margin-top: 8px; }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 12px;
-    }
-    .project-card {
-      padding: 16px 18px;
-      border: 1px solid rgba(0, 0, 0, .12);
-      border-radius: 9px;
-      background: rgba(255, 255, 255, .86);
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .project-card:hover { transform: translateY(-2px); box-shadow: 0 5px 18px rgba(0,0,0,.08); }
-    .project-card h3 { margin: 0 0 5px; font-size: 16px; }
-    .project-card p { margin: 0; color: #555; line-height: 1.55; }
-    .experience-row { border-bottom: 1px solid rgba(0,0,0,.1); }
-    .experience-row:last-child { border-bottom: 0; }
     .section-intro { color: #555; }
-    .publications-table tr[data-tags] > td {
-      border-top: 1px solid rgba(0, 0, 0, .14);
-      border-bottom: 1px solid rgba(0, 0, 0, .14);
-      background: #fff;
-    }
-    .publications-table tr[data-tags] > td:first-child {
-      border-left: 1px solid rgba(0, 0, 0, .14);
-      border-radius: 8px 0 0 8px;
-    }
-    .publications-table tr[data-tags] > td:last-child {
-      border-right: 1px solid rgba(0, 0, 0, .14);
-      border-radius: 0 8px 8px 0;
-    }
-    .publications-table papertitle { color: #176a8a; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .publication-section { width: 96%; max-width: 1000px; margin: 34px auto 48px; }
+    .publication-section > #publications-heading { -webkit-text-decoration-color: #fba524; text-decoration-color: #fba524; }
+    .publication-filter { box-sizing: border-box; width: min(100%, 350px); margin: 14px 0 24px; padding: 10px 12px; border: 1px solid #333; border-radius: 6px; font: inherit; }
+    .publication-year { border-top: 1px solid #e5e5e5; padding: 15px 0 22px; }
+    .publication-year[hidden], .publication-entry[hidden] { display: none !important; }
+    .publication-year h3 { margin: 0 0 12px; color: #d5d2cc; font-size: 32px; font-weight: 400; text-align: right; }
+    .publication-entry { display: grid; grid-template-columns: 125px minmax(0, 1fr); gap: 30px; margin: 0 0 20px; }
+    .publication-venue-tag { align-self: start; margin-top: 3px; padding: 3px 8px; border: 1px solid rgba(251, 165, 36, .18); border-radius: 4px; background: rgba(251, 165, 36, .12); color: #b47a00; font-size: 11px; font-weight: 700; letter-spacing: .02em; text-align: center; }
+    .publication-title { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.45; }
+    .publication-title a { color: #f49300; font-weight: 700; text-decoration: none; }
+    .publication-title a:hover { color: #6e3519; text-decoration: none; }
+    .publication-authors, .publication-venue { margin: 3px 0 0; line-height: 1.45; }
+    .publication-venue { color: #444; }
+    .project-entry { display: grid; grid-template-columns: minmax(220px, 34%) minmax(0, 1fr); gap: 20px; align-items: center; margin-bottom: 14px; }
+    .project-entry > td { display: block; width: auto !important; padding: 12px !important; }
+    .project-figure { display: block; box-sizing: border-box; width: 100%; max-width: 360px; height: 220px; margin: 0 auto; padding: 5px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; object-fit: contain; }
+    .project-description { margin: 7px 0 0; color: #444; line-height: 1.55; }
     @media (max-width: 600px) {
-      .project-grid { grid-template-columns: 1fr; }
+      .publication-entry { grid-template-columns: 1fr; gap: 6px; margin-bottom: 24px; }
+      .publication-venue-tag { justify-self: start; min-width: 95px; }
+      .publication-year h3 { font-size: 28px; }
+      .project-entry { grid-template-columns: 1fr; gap: 4px; }
+      .project-figure { max-width: 360px; height: 220px; }
+    }
+    @media (min-width: 1401px) and (min-height: 561px) {
+      #about { max-width: min(1200px, calc(100vw - 240px)) !important; margin-left: max(24px, calc(50vw - 710px)) !important; margin-right: auto !important; }
+      #publications { max-width: 1200px; }
+      .sticky-rail { display: flex; }
+      .sticky-contacts { display: flex; }
+    }
+    @media (max-width: 600px) {
       .profile-photo-wrap { width: 150px; height: 150px; }
     }
   </style>
@@ -71,28 +77,41 @@
               <name>Yuzhang Xie</name>
             </p>
             <p>
-              I am a Ph.D. student in Computer Science and Informatics at
-              <a href="https://www.emory.edu/" target="_blank" rel="noopener">Emory University</a> (2023 cohort),
-              advised by Dr. <a href="https://www.cs.emory.edu/~jyang71/" target="_blank" rel="noopener">Carl Yang</a>
-              and co-advised by Dr. <a href="https://med.emory.edu/departments/biomedical-informatics/" target="_blank" rel="noopener">Xiao Hu</a>.
+              I am a 4th-year Ph.D. candidate in <a href="https://computerscience.emory.edu/" target="_blank" rel="noopener">Computer Science and Informatics</a> at <a href="https://www.emory.edu/" target="_blank" rel="noopener">Emory University</a>, advised by Dr. <a href="https://www.cs.emory.edu/~jyang71/" target="_blank" rel="noopener">Carl Yang</a>
+              and co-advised by Dr. <a href="https://med.emory.edu/departments/biomedical-informatics/" target="_blank" rel="noopener">Xiao Hu</a>. Before joining Emory, I graduated from <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noopener">Shanghai Jiao Tong University</a>, where I was advised by Dr. <a href="https://compbio.sjtu.edu.cn/" target="_blank" rel="noopener">Yang Yang</a>.
             </p>
             <p>
-              My research focuses on AI for health and biological and clinical informatics, with interests in
-              knowledge graph-guided learning, graph learning, machine learning, and data mining. I work on
-              methods that connect biomedical knowledge and clinical data to support reliable analysis and
-              decision-making.
+              My work focuses on developing reliable and interpretable AI for healthcare by combining multimodal clinical data, language models, and biomedical knowledge, and I am currently seeking a summer internship in healthcare AI.
             </p>
+            <ul class="research-interests">
+              <li><strong>Multimodal AI for Healthcare:</strong> Developing robust and interpretable AI methods that integrate diverse clinical data modalities, including tables, text, images, omics, and time-series data, to support clinical decision-making.</li>
+              <li><strong>LLM Agents &amp; Reliable Learning:</strong> Studying how LLM-based agents improve through interaction, fine-tuning, and feedback, and how to evaluate their reasoning and decisions reliably.</li>
+              <li><strong>KG-Guided Learning &amp; Reasoning:</strong> Integrating biomedical knowledge graphs into machine learning, especially LLMs, to support grounded reasoning, inference, and interpretability.</li>
+              <li><strong>Data Mining &amp; Representation Learning:</strong> Extracting knowledge from heterogeneous data and learning transferable representations with language models and graph neural networks.</li>
+            </ul>
             <div style="width:100%;height:1px;background:linear-gradient(to right,transparent,#ccc 20%,#ccc 80%,transparent);margin:14px 0"></div>
-            <p class="contact-links">
+            <p class="contact-links intro-contact-links">
               <span class="contact-line">
                 <a href="mailto:yuzhang.xie@emory.edu" class="email-link" title="Email Yuzhang Xie">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
                   Email
                 </a>&nbsp;/&nbsp;
-                <a href="files/CV-YuzhangXie.pdf" target="_blank" rel="noopener">CV</a>&nbsp;/&nbsp;
-                <a href="https://www.linkedin.com/in/yuzhangxie" target="_blank" rel="noopener">LinkedIn</a>&nbsp;/&nbsp;
-                <a href="https://scholar.google.com/citations?user=X0eF7YQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>&nbsp;/&nbsp;
-                <a href="https://github.com/constantjxyz" target="_blank" rel="noopener">GitHub</a>
+                <a href="files/CV-YuzhangXie.pdf" target="_blank" rel="noopener">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8M8 17h8"></path></svg>
+                  CV
+                </a>&nbsp;/&nbsp;
+                <a href="https://www.linkedin.com/in/yuzhangxie" target="_blank" rel="noopener">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.47v6.27ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.1 20.45H3.55V9H7.1v11.45Z"></path></svg>
+                  LinkedIn
+                </a>&nbsp;/&nbsp;
+                <a href="https://scholar.google.com/citations?user=X0eF7YQAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5L2 9Z"></path><path d="M6 11v5c3.5 2.5 8.5 2.5 12 0v-5M22 9v6"></path></svg>
+                  Google Scholar
+                </a>&nbsp;/&nbsp;
+                <a href="https://github.com/constantjxyz" target="_blank" rel="noopener">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.02-.7.08-.69.08-.69 1.12.08 1.7 1.15 1.7 1.15 1 .1.76 2.43 4.02 1.73.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.51 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3.01 0 4.28-2.6 5.22-5.08 5.5.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"></path></svg>
+                  GitHub
+                </a>
               </span>
             </p>
           </td>
@@ -109,70 +128,109 @@
         <tbody><tr><td style="padding:0;width:100%;vertical-align:middle">
           <heading>News</heading>
           <ul class="news-list">
-            <li class="news-item"><span class="news-dot"></span><div class="news-body"><span class="news-date">Aug. 2026</span><span class="news-text"><a href="https://github.com/constantjxyz/EHRBench" target="_blank" rel="noopener">EHRBench</a>, an EHR-grounded benchmark for clinical decision-making with LLMs, appeared at <span class="venue">KDD 2026</span>.</span></div></li>
-            <li class="news-item"><span class="news-dot"></span><div class="news-body"><span class="news-date">Nov. 2025</span><span class="news-text">Our paper <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919460/" target="_blank" rel="noopener">KERAP</a> was published in the <span class="venue">AMIA Annual Symposium Proceedings</span>.</span></div></li>
-            <li class="news-item"><span class="news-dot"></span><div class="news-body"><span class="news-date">Jul. 2024</span><span class="news-text"><a href="https://github.com/constantjxyz/PromptLink" target="_blank" rel="noopener">PromptLink</a> was presented at the <span class="venue">ACM SIGIR Conference</span>.</span></div></li>
+            <li class="news-item"><span class="news-dot"></span><div class="news-body"><span class="news-date">Sept. 2026</span><span class="news-text">Our paper <a href="https://arxiv.org/abs/2603.02434" target="_blank" rel="noopener">MIRAGE</a> was accepted to <span class="venue">IEEE BHI 2026</span>. It uses biomedical knowledge graphs to guide cross-cohort MRI synthesis for Alzheimer’s disease prediction.</span></div></li>
+            <li class="news-item"><span class="news-dot"></span><div class="news-body"><span class="news-date">Sept. 2026</span><span class="news-text">Our paper <em>Decisions by Discrimination: Differential Evidence for Medical Reasoning</em> was accepted to <span class="venue">AACL-IJCNLP 2026</span>. The work studies how contrasting evidence can support LLM for medical reasoning.</span></div></li>
+            <li class="news-item"><span class="news-dot"></span><div class="news-body"><span class="news-date">Aug. 2026</span><span class="news-text"><a href="https://github.com/constantjxyz/EHRBench" target="_blank" rel="noopener">EHRBench</a> was presented at <span class="venue">KDD 2026</span>. It is an EHR-grounded benchmark for evaluating LLMs on clinical decision-making.</span></div></li>
+            <li class="news-item"><span class="news-dot"></span><div class="news-body"><span class="news-date">Aug. 2026</span><span class="news-text">Our paper <a href="https://arxiv.org/abs/2601.03471" target="_blank" rel="noopener">EpiQAL</a> was accepted to <span class="venue">EMNLP 2026</span>. It benchmarks LLMs on epidemiological question answering and reasoning.</span></div></li>
           </ul>
         </td></tr></tbody>
       </table>
 
-      <table id="publications" class="publications-table page-section" style="width:100%;border:0;border-spacing:0 14px;border-collapse:separate;margin:0 auto">
+      <table id="selected-projects" class="publications-table page-section" style="width:100%;border:0;border-spacing:0 14px;border-collapse:separate;margin:0 auto">
         <tbody>
-          <tr><td colspan="2" style="padding:0"><heading>Selected Publications</heading><p class="section-intro">Selected work on biomedical concept linking, clinical reasoning, and EHR-grounded evaluation.</p></td></tr>
-          <tr data-tags="clinical-ai,graph-learning">
-            <td style="padding:18px;width:28%;vertical-align:middle;text-align:center"><span style="font-size:42px" aria-hidden="true">🩺</span></td>
-            <td style="padding:18px;width:72%;vertical-align:middle">
-              <a href="https://github.com/constantjxyz/EHRBench" target="_blank" rel="noopener"><papertitle>EHRBench: An Automated and Reliable EHR-based Benchmark for Clinical Decision Making with LLMs</papertitle></a>
-              <br><strong>Yuzhang Xie</strong>, Keqi Han, Yunpeng Xiao, Hejie Cui, Guanchen Wu, Ziyang Zhang, Kai Shu, Jiaying Lu, Xiao Hu, Carl Yang
+          <tr><td colspan="2" style="padding:0"><heading>Selected Projects</heading></td></tr>
+          <tr class="project-entry" data-tags="clinical-ai,benchmarking">
+            <td><img class="project-figure" src="images/project/EHRBench.png" alt="EHRBench overview: structured EHR data, automated construction pipeline, and clinical decision tasks" loading="lazy"></td>
+            <td>
+              <a href="https://doi.org/10.1145/3770855.3817571" target="_blank" rel="noopener"><papertitle>EHRBench: An Automated and Reliable EHR-based Benchmark for Clinical Decision Making with LLMs</papertitle></a>
+              <br><strong>Yuzhang Xie</strong>, Keqi Han, Yunpeng Xiao, Hejie Cui, Guanchen Wu, Ziyang Zhang, Kai Shu, Jiaying Lu, Xiao Hu, and Carl Yang
               <br><em>Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD), 2026</em>
-              <br><span class="publication-links"><a href="https://arxiv.org/abs/2605.30637" target="_blank" rel="noopener">arXiv</a> &nbsp;/&nbsp; <a href="https://github.com/constantjxyz/EHRBench" target="_blank" rel="noopener">Code</a></span>
-              <p>EHR-grounded benchmark and pipeline for evaluating LLMs on clinical diagnosis, treatment, and prognosis questions.</p>
+              <br><span class="publication-links"><a href="https://doi.org/10.1145/3770855.3817571" target="_blank" rel="noopener">Paper</a> &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2605.30637" target="_blank" rel="noopener">arXiv</a> &nbsp;/&nbsp; <a href="https://github.com/constantjxyz/EHRBench" target="_blank" rel="noopener">Code</a></span>
+              <p class="project-description">An EHR-grounded benchmark for evaluating LLMs on clinical diagnosis, treatment, and prognosis tasks, automatically and reliably.</p>
             </td>
           </tr>
-          <tr data-tags="clinical-ai,graph-learning">
-            <td style="padding:18px;width:28%;vertical-align:middle;text-align:center"><span style="font-size:42px" aria-hidden="true">🧠</span></td>
-            <td style="padding:18px;width:72%;vertical-align:middle">
+          <tr class="project-entry" data-tags="clinical-ai,knowledge-graphs,multi-agent">
+            <td><img class="project-figure" src="files/KERAP.png" alt="KERAP's linkage, retrieval, and prediction agents for knowledge-guided diagnosis prediction" loading="lazy"></td>
+            <td>
               <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919460/" target="_blank" rel="noopener"><papertitle>KERAP: A Knowledge-Enhanced Reasoning Approach for Accurate Zero-shot Diagnosis Prediction Using Multi-agent LLMs</papertitle></a>
-              <br><strong>Yuzhang Xie</strong>, Hejie Cui, Ziyang Zhang, Jiaying Lu, Kai Shu, Fadi Nahab, Xiao Hu, Carl Yang
+              <br><strong>Yuzhang Xie</strong>, Hejie Cui, Ziyang Zhang, Jiaying Lu, Kai Shu, Fadi Nahab, Xiao Hu, and Carl Yang
               <br><em>AMIA Annual Symposium Proceedings, 2025</em>
-              <br><span class="publication-links"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919460/" target="_blank" rel="noopener">Paper</a> &nbsp;/&nbsp; <a href="https://github.com/constantjxyz/KERAP" target="_blank" rel="noopener">Code</a></span>
-              <p>A knowledge graph-guided multi-agent approach for zero-shot diagnosis prediction from electronic health records.</p>
+              <br><span class="publication-links"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919460/" target="_blank" rel="noopener">Paper</a> &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2507.02773" target="_blank" rel="noopener">arXiv</a> &nbsp;/&nbsp; <a href="https://github.com/constantjxyz/KERAP" target="_blank" rel="noopener">Code</a></span>
+              <p class="project-description">A knowledge graph-guided multi-agent framework that links EHR data to biomedical knowledge and uses staged reasoning for zero-shot diagnosis prediction.</p>
             </td>
           </tr>
-          <tr data-tags="biomedical-nlp">
-            <td style="padding:18px;width:28%;vertical-align:middle;text-align:center"><span style="font-size:42px" aria-hidden="true">🔗</span></td>
-            <td style="padding:18px;width:72%;vertical-align:middle">
+          <tr class="project-entry" data-tags="healthcare,knowledge-graphs,hypergraphs">
+            <td><img class="project-figure" src="files/HypKG.png" alt="HypKG framework for contextualizing knowledge graphs with patient-specific information" loading="lazy"></td>
+            <td>
+              <a href="https://doi.org/10.1007/978-3-032-09527-5_18" target="_blank" rel="noopener"><papertitle>HypKG: Hypergraph-based Knowledge Graph Contextualization for Precision Healthcare</papertitle></a>
+              <br><strong>Yuzhang Xie</strong>, Xu Han, Ran Xu, Xiao Hu, Jiaying Lu, and Carl Yang
+              <br><em>International Semantic Web Conference (ISWC), 2025</em>
+              <br><span class="publication-links"><a href="https://doi.org/10.1007/978-3-032-09527-5_18" target="_blank" rel="noopener">Paper</a> &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2507.19726" target="_blank" rel="noopener">arXiv</a> &nbsp;/&nbsp; <a href="https://github.com/constantjxyz/HypKG" target="_blank" rel="noopener">Code</a></span>
+              <p class="project-description">Integrates patient-specific EHR context into knowledge graphs using hypergraph representations to support precision healthcare.</p>
+            </td>
+          </tr>
+          <tr class="project-entry" data-tags="biomedical-nlp,concept-linking">
+            <td><img class="project-figure" src="files/PromptLink.png" alt="PromptLink's two-stage prompting framework for biomedical concept linking" loading="lazy"></td>
+            <td>
               <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11867735/" target="_blank" rel="noopener"><papertitle>PromptLink: Leveraging Large Language Models for Cross-Source Biomedical Concept Linking</papertitle></a>
-              <br><strong>Yuzhang Xie</strong>, Jiaying Lu, Joyce Ho, Fadi Nahab, Xiao Hu, Carl Yang
+              <br><strong>Yuzhang Xie</strong>, Jiaying Lu, Joyce Ho, Fadi Nahab, Xiao Hu, and Carl Yang
               <br><em>Proceedings of the ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), 2024</em>
-              <br><span class="publication-links"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11867735/" target="_blank" rel="noopener">Paper</a> &nbsp;/&nbsp; <a href="https://github.com/constantjxyz/PromptLink" target="_blank" rel="noopener">Code</a></span>
-              <p>LLM-based biomedical concept linking across data sources with different terminology and naming conventions.</p>
+              <br><span class="publication-links"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11867735/" target="_blank" rel="noopener">Paper</a> &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2405.07500" target="_blank" rel="noopener">arXiv</a> &nbsp;/&nbsp; <a href="https://github.com/constantjxyz/PromptLink" target="_blank" rel="noopener">Code</a></span>
+              <p class="project-description">Combines biomedical candidate retrieval with two-stage LLM prompting and self-verification to link concepts across data sources.</p>
+            </td>
+          </tr>
+          <tr class="project-entry" data-tags="multimodal-learning,gastric-cancer,medical-imaging">
+            <td>
+              <img class="project-figure" src="files/GaCaMML.jpg" alt="GaCaMML overview of multimodal gastric cancer diagnosis and outcome prediction" loading="lazy">
+            </td>
+            <td>
+              <a href="https://doi.org/10.1016/j.artmed.2024.102871" target="_blank" rel="noopener"><papertitle>Improving Diagnosis and Outcome Prediction of Gastric Cancer via Multimodal Learning Using Whole Slide Pathological Images and Gene Expression</papertitle></a>
+              <br><strong>Yuzhang Xie</strong>, Qingqing Sang, Qian Da, Guoshuai Niu, Shijie Deng, Haoran Feng, Yunqin Chen, Yuan-Yuan Li, Bingya Liu, Yang Yang, and Wentao Dai
+              <br><em>Artificial Intelligence in Medicine, 152, 102871, 2024</em>
+              <br><span class="publication-links"><a href="https://doi.org/10.1016/j.artmed.2024.102871" target="_blank" rel="noopener">Paper</a></span>
+              <p class="project-description">GaCaMML combines whole-slide pathology images with gene expression data for gastric cancer survival prediction, pathological-stage classification, and lymph-node classification.</p>
             </td>
           </tr>
         </tbody>
       </table>
 
-      <table id="experience" class="page-section" width="100%" align="center" border="0" cellpadding="10">
-        <tbody>
-          <tr><td colspan="2"><heading>Experience</heading></td></tr>
-          <tr class="experience-row">
-            <td style="padding-left:20px;padding-right:20px;width:24%;vertical-align:middle;text-align:center"><strong style="font-size:17px;color:#234e70">Emory</strong></td>
-            <td width="76%" valign="center"><strong>Emory University</strong><br>2023 – Present<br><strong>Ph.D. Student, Computer Science and Informatics</strong><br>Advisor: Dr. Carl Yang · Co-advisor: Dr. Xiao Hu</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table id="projects" class="page-section" style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin:22px auto 0">
-        <tbody><tr><td style="padding:0;width:100%;vertical-align:middle">
-          <heading>Projects</heading>
-          <div class="project-grid">
-            <article class="project-card"><h3><a href="https://github.com/constantjxyz/EHRBench" target="_blank" rel="noopener">EHRBench</a></h3><p>An EHR-grounded benchmark and reproducible pipeline for clinical decision-making evaluations with LLMs.</p></article>
-            <article class="project-card"><h3><a href="https://github.com/constantjxyz/PromptLink" target="_blank" rel="noopener">PromptLink</a></h3><p>LLM-assisted linking of biomedical concepts across datasets and vocabularies.</p></article>
-            <article class="project-card"><h3><a href="https://github.com/constantjxyz/HypKG" target="_blank" rel="noopener">HypKG</a></h3><p>Hypergraph-based knowledge graph contextualization for precision healthcare.</p></article>
-            <article class="project-card"><h3><a href="https://github.com/constantjxyz/KERAP" target="_blank" rel="noopener">KERAP</a></h3><p>Knowledge-enhanced, multi-agent reasoning for zero-shot clinical diagnosis prediction.</p></article>
+      <section id="publications" class="publication-section page-section" aria-labelledby="publications-heading" >
+        <heading id="publications-heading">Publications</heading>
+        <p></p>
+        <label class="visually-hidden" for="publicationFilter">Filter publications</label>
+        <input id="publicationFilter" class="publication-filter" type="search" placeholder="Type to filter" aria-label="Filter publications">
+        <div id="publicationList">
+          <div class="publication-year" data-year="2026">
+            <h3>2026</h3>
+            <article class="publication-entry"><span class="publication-venue-tag">KDD</span><div><h4 class="publication-title"><a href="https://doi.org/10.1145/3770855.3817571" target="_blank" rel="noopener">EHRBench: An Automated and Reliable EHR-based Benchmark for Clinical Decision Making with LLMs</a></h4><p class="publication-authors"><strong>Yuzhang Xie</strong>, Keqi Han, Yunpeng Xiao, Hejie Cui, Guanchen Wu, Ziyang Zhang, Kai Shu, Jiaying Lu, Xiao Hu, and Carl Yang</p><p class="publication-venue"><em>Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, 2026</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">AMIA</span><div><h4 class="publication-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13274286/" target="_blank" rel="noopener">Enhanced Atrial Fibrillation Prediction in ESUS Patients with Hypergraph-based Pre-training</a></h4><p class="publication-authors"><strong>Yuzhang Xie</strong>, Guanchen Wu, Ruijie Wang, Fadi Nahab, Xiao Hu, and Carl Yang</p><p class="publication-venue"><em>AMIA Joint Summits on Translational Science Proceedings</em>, 2026</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">EMNLP</span><div><h4 class="publication-title"><a href="https://arxiv.org/abs/2601.03471" target="_blank" rel="noopener">EpiQAL: Benchmarking Large Language Models in Epidemiological Question Answering and Reasoning</a></h4><p class="publication-authors">Mingyang Wei, Dehai Min, Zewen Liu, <strong>Yuzhang Xie</strong>, Guanchen Wu, Ziyang Zhang, Carl Yang, Max S. Y. Lau, Qi He, Lu Cheng, and Wei Jin</p><p class="publication-venue"><em>Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing</em>, 2026</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">AMIA</span><div><h4 class="publication-title"><a href="https://arxiv.org/abs/2603.13673" target="_blank" rel="noopener">LLM-MINE: Large Language Model based Alzheimer’s Disease and Related Dementias Phenotypes Mining from Clinical Notes</a></h4><p class="publication-authors">Mingchen Shao, <strong>Yuzhang Xie</strong>, Carl Yang, and Jiaying Lu</p><p class="publication-venue"><em>AMIA Annual Symposium</em>, 2026 </p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">BHI</span><div><h4 class="publication-title"><a href="https://arxiv.org/abs/2603.02434" target="_blank" rel="noopener">MIRAGE: Knowledge Graph-Guided Cross-Cohort MRI Synthesis for Alzheimer’s Disease Prediction</a></h4><p class="publication-authors">Guanchen Wu, Zhe Huang, <strong>Yuzhang Xie</strong>, Runze Yan, Akul Chopra, Deqiang Qiu, Xiao Hu, Fei Wang, and Carl Yang</p><p class="publication-venue"><em>IEEE-EMBS International Conference on Biomedical and Health Informatics</em>, 2026 </p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">AACL-IJCNLP</span><div><h4 class="publication-title">Decisions by Discrimination: Differential Evidence for Medical Reasoning <span style="color:#777;font-size:13px;font-weight:400">(Coming soon)</span></h4><p class="publication-authors">Yunpeng Xiao, <strong>Yuzhang Xie</strong>, Junhao Huang, Carl Yang, Xiao Hu, and Kai Shu</p><p class="publication-venue"><em>Proceedings of the Asia-Pacific Chapter of the Association for Computational Linguistics</em>, 2026 </p></div></article>
           </div>
-        </td></tr></tbody>
-      </table>
+          <div class="publication-year" data-year="2025">
+            <h3>2025</h3>
+            <article class="publication-entry"><span class="publication-venue-tag">AMIA</span><div><h4 class="publication-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919460/" target="_blank" rel="noopener">KERAP: A Knowledge-Enhanced Reasoning Approach for Accurate Zero-shot Diagnosis Prediction Using Multi-agent LLMs</a></h4><p class="publication-authors"><strong>Yuzhang Xie</strong>, Hejie Cui, Ziyang Zhang, Jiaying Lu, Kai Shu, Fadi Nahab, Xiao Hu, and Carl Yang</p><p class="publication-venue"><em>AMIA Annual Symposium Proceedings</em>, 2025</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">ISWC</span><div><h4 class="publication-title"><a href="https://doi.org/10.1007/978-3-032-09527-5_18" target="_blank" rel="noopener">HypKG: Hypergraph-based Knowledge Graph Contextualization for Precision Healthcare</a></h4><p class="publication-authors"><strong>Yuzhang Xie</strong>, Keqi Han, Ran Xu, Xiao Hu, Jiaying Lu, and Carl Yang</p><p class="publication-venue"><em>International Semantic Web Conference</em>, 2025</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">BIBM</span><div><h4 class="publication-title"><a href="https://arxiv.org/abs/2511.16548" target="_blank" rel="noopener">Utilizing Large Language Models for Zero-Shot Medical Ontology Extension from Clinical Notes</a></h4><p class="publication-authors">Guanchen Wu, <strong>Yuzhang Xie</strong>, Huanwei Wu, Zhe He, Hui Shao, Xiao Hu, and Carl Yang</p><p class="publication-venue"><em>IEEE International Conference on Bioinformatics and Biomedicine</em>, 2025</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">Agents4Science</span><div><h4 class="publication-title"><a href="https://arxiv.org/abs/2510.16194" target="_blank" rel="noopener">Towards Automatic Evaluation and Selection of PHI De-identification Models via Multi-Agent Collaboration</a></h4><p class="publication-authors">Guanchen Wu, Zuhui Chen, <strong>Yuzhang Xie</strong>, and Carl Yang</p><p class="publication-venue"><em>Agents4Science</em>, 2025 (Spotlight)</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">ACL</span><div><h4 class="publication-title"><a href="https://aclanthology.org/2025.findings-acl.718/" target="_blank" rel="noopener">CROSSAGENTIE: Cross-Type and Cross-Task Multi-Agent LLM Collaboration for Zero-Shot Information Extraction</a></h4><p class="publication-authors">Meng Lu, <strong>Yuzhang Xie</strong>, Zhenyu Bi, Shuxiang Cao, and Xuan Wang</p><p class="publication-venue"><em>Association for Computational Linguistics: ACL</em>, 2025</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">NPJ Digital Medicine</span><div><h4 class="publication-title"><a href="https://www.nature.com/articles/s41746-025-01556-8" target="_blank" rel="noopener">Preliminary analysis of the impact of lab results on large language model generated differential diagnoses</a></h4><p class="publication-authors">Balu Bhasuran, Qiao Jin, <strong>Yuzhang Xie</strong>, Carl Yang, Karim Hanna, Jennifer Costa, Cindy Shavor, Zhiyong Lu, and Zhe He</p><p class="publication-venue"><em>NPJ Digital Medicine</em>, 2025</p></div></article>
+          </div>
+          <div class="publication-year" data-year="2024">
+            <h3>2024</h3>
+            <article class="publication-entry"><span class="publication-venue-tag">SIGIR</span><div><h4 class="publication-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11867735/" target="_blank" rel="noopener">PromptLink: Leveraging Large Language Models for Cross-Source Biomedical Concept Linking</a></h4><p class="publication-authors"><strong>Yuzhang Xie</strong>, Jiaying Lu, Joyce Ho, Fadi Nahab, Xiao Hu, and Carl Yang</p><p class="publication-venue"><em>Proceedings of the ACM SIGIR Conference on Research and Development in Information Retrieval</em>, 2024</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">Artificial Intelligence in Medicine</span><div><h4 class="publication-title"><a href="https://doi.org/10.1016/j.artmed.2024.102871" target="_blank" rel="noopener">Improving diagnosis and outcome prediction of gastric cancer via multimodal learning using whole slide pathological images and gene expression</a></h4><p class="publication-authors"><strong>Yuzhang Xie</strong>, Qian Sang, Qian Da, Guoshuai Niu, Yutong Deng, Zhiqiang Feng, et al.</p><p class="publication-venue"><em>Artificial Intelligence in Medicine</em>, 152, 102871, 2024</p></div></article>
+            <article class="publication-entry"><span class="publication-venue-tag">KDD</span><div><h4 class="publication-title"><a href="https://doi.org/10.1145/3637528.3671594" target="_blank" rel="noopener">TACCO: Task-guided Co-clustering of Clinical Concepts and Patient Visits for Disease Subtyping based on EHR Data</a></h4><p class="publication-authors">Ziyang Zhang, Hejie Cui, Ran Xu, <strong>Yuzhang Xie</strong>, Joyce Ho, and Carl Yang</p><p class="publication-venue"><em>Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, 2024</p></div></article>
+          </div>
+          <div class="publication-year" data-year="2022">
+            <h3>2022</h3>
+            <article class="publication-entry"><span class="publication-venue-tag">BIBM</span><div><h4 class="publication-title"><a href="https://doi.org/10.1109/BIBM55620.2022.9995480" target="_blank" rel="noopener">Survival Prediction for Gastric Cancer via Multimodal Learning of Whole Slide Images and Gene Expression</a></h4><p class="publication-authors"><strong>Yuzhang Xie</strong>, Guoshuai Niu, Qian Da, Wentao Dai, and Yang Yang</p><p class="publication-venue"><em>IEEE International Conference on Bioinformatics and Biomedicine</em>, 2022</p></div></article>
+          </div>
+        </div>
+      </section>
+
     </td></tr></tbody>
   </table>
 
@@ -185,10 +243,26 @@
     <nav class="section-drip-nav" aria-label="Page sections">
       <a href="#about"><span>About</span></a>
       <a href="#news"><span>News</span></a>
+      <a href="#selected-projects"><span>Selected Projects</span></a>
       <a href="#publications"><span>Publications</span></a>
-      <a href="#experience"><span>Experience</span></a>
-      <a href="#projects"><span>Projects</span></a>
     </nav>
+    <div class="sticky-contacts" aria-label="Contact links">
+      <a href="mailto:yuzhang.xie@emory.edu" title="Email Yuzhang Xie">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>Email
+      </a>
+      <a href="files/CV-YuzhangXie.pdf" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8M8 17h8"></path></svg>CV
+      </a>
+      <a href="https://www.linkedin.com/in/yuzhangxie" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.47v6.27ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.1 20.45H3.55V9H7.1v11.45Z"></path></svg>LinkedIn
+      </a>
+      <a href="https://scholar.google.com/citations?user=X0eF7YQAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5L2 9Z"></path><path d="M6 11v5c3.5 2.5 8.5 2.5 12 0v-5M22 9v6"></path></svg>Google Scholar
+      </a>
+      <a href="https://github.com/constantjxyz" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.02-.7.08-.69.08-.69 1.12.08 1.7 1.15 1.7 1.15 1 .1.76 2.43 4.02 1.73.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.51 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3.01 0 4.28-2.6 5.22-5.08 5.5.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"></path></svg>GitHub
+      </a>
+    </div>
   </aside>
 
   <section class="mountain-footer" aria-label="Footer landscape">
@@ -200,11 +274,10 @@
       <div class="mountain-fallback" style="display:none"></div>
       <div class="mountain-content">
         <h2>Thanks for visiting</h2>
-        <p class="mountain-sub">Research at the intersection of clinical data, knowledge, and AI.</p>
         <a href="mailto:yuzhang.xie@emory.edu" class="mountain-cta"><span>Get in touch</span></a>
         <p class="mountain-footnote">
           <span>Yuzhang Xie · Emory University</span>
-          <span class="mountain-updated">Last updated: October 19, 2026.</span>
+          <span class="mountain-updated">Last updated: October 21, 2026.</span>
         </p>
       </div>
     </div>
@@ -229,6 +302,22 @@
       }, { passive: true });
       window.addEventListener('resize', updateSectionNav);
       updateSectionNav();
+    })();
+    (function() {
+      var filter = document.getElementById('publicationFilter');
+      if (!filter) return;
+      filter.addEventListener('input', function() {
+        var query = filter.value.trim().toLowerCase();
+        document.querySelectorAll('.publication-year').forEach(function(year) {
+          var visibleEntries = 0;
+          year.querySelectorAll('.publication-entry').forEach(function(entry) {
+            var visible = entry.textContent.toLowerCase().indexOf(query) !== -1;
+            entry.hidden = !visible;
+            if (visible) visibleEntries += 1;
+          });
+          year.hidden = visibleEntries === 0;
+        });
+      });
     })();
   </script>
 </body>

@@ -243,11 +243,11 @@ html {
   border: 1px solid transparent;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.72);
-  color: #444;
+  color: #000;
   font-size: 12px;
   line-height: 1.2;
   white-space: nowrap;
-  opacity: 0.72;
+  opacity: 1;
   transition: opacity 0.18s ease, color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
 
@@ -261,7 +261,7 @@ html {
 .section-drip-nav a:hover span,
 .section-drip-nav a:focus span {
   opacity: 1;
-  color: #111;
+  color: #000;
   border-color: #e5e7eb;
   background: rgba(255, 255, 255, 0.95);
 }
